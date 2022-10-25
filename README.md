@@ -18,7 +18,7 @@ Today, we begin the first of a 4-Phase build of the RESTy application, written i
 
 ## Lab 26
 
-Refactor all of the child components of App.js from classes to functions. Use .scss pages to style the webpage.
+Refactored all of the child components of App.js from classes to functions. Use .scss pages to style the webpage.
 
 ### Wireframe
 
