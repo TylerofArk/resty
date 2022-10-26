@@ -9,7 +9,7 @@ const Form = (props) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.handleApiCall(method, url);
+    props.handleApiCall(url, method);
   };
     return (
       <>

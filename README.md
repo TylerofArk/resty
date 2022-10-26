@@ -25,7 +25,16 @@ The following user stories detail the major functionality for this phase of the 
 - As a user, I want to enter the REST Method and URL to an API
 - As a user, I want to see a summary of my request as well as results returned from an API request in my browser in a readable format
 
-### Application Flow:
+## Phase 3 Requirements
+
+In phase 3, we connected RESTy to live APIs, fetching and displaying remote data. Our primary focus will be to service GET requests
+
+The following user stories detail the major functionality for this phase of the project.
+
+As a user, I want to enter the URL to an API and issue a GET request so that I can retrieve it’s data
+As a user, I want to see the results returned from an API request in my browser in a readable format
+
+### Application Flow
 
 - User enters an API URL
 - Chooses a REST Method
@@ -44,10 +53,13 @@ Refactored any components using this.setState to implement the useState react AP
 
 Refactored the Form Component to implement user input from form elements, instead of hard coded string values.
 
+## Lab 28
+
+Refactored application methods to allow for browser side HTTP requests to be sent.
+
+Allows the user to set a url, method, and request body.
+Make sure all relevant request and response data is displayed to the User.
+
 ### Wireframe Lab 26
 
 ![Wireframe](./public/RESTy.png)
-
-### UML Lab 27
-
-
