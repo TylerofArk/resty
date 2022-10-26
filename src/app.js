@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import React from 'react';
 import './app.scss';
@@ -11,6 +11,12 @@ const App = () => {
 
 	const [data, setData] = useState(null);
 	const [requestParams, setRequestParams] = useState({});
+	const [headers, setHeaders] = useState(null);
+
+	useEffect(() => {
+		console.log('testing useEffect 1, 2, 3')
+		// if using request params to make api request use it here
+	}, [])
 
     const callApi = async (url, method = 'GET') => {
 
@@ -19,8 +25,14 @@ const App = () => {
 				url: url,
 			})
 
+			let params = {
+				url,
+				method
+			}
+
     setData(newData.data.results);
-		setRequestParams(requestParams);
+		setRequestParams(params);
+		setHeaders(newData.headers);
 		
   }
     return (
@@ -29,7 +41,7 @@ const App = () => {
         <div>Request Method: {requestParams.method}</div>
         <div>URL: {requestParams.url}</div>
         <Form handleApiCall={callApi} />
-        <Results data={data} />
+        <Results data={data} headers={headers}/>
         <Footer />
       </>
     );

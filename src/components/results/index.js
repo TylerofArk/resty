@@ -6,10 +6,11 @@ const Results = (props) => {
   let {data} = props;
     return (
       <section>
-        {data ?
+        {props.data ?
         (<>
           <span data-testid="results">
-          <JSONPretty data={data}/>
+          <JSONPretty data={props.data}/>
+					<JSONPretty data={props.headers}
           </span>
         </>) :
         (<span>Awaiting Request</span>)}
