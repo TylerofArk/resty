@@ -1,31 +1,29 @@
 import React from 'react';
-
+import { useState } from 'react';
 import './form.scss';
 
 const Form = (props) => {
 
-  let handleSubmit = e => {
-    e.preventDefault();
-    const formData = {
-      method:'GET',
-      url: 'https://pokeapi.co/api/v2/pokemon',
-    };
-    props.handleApiCall(formData);
-  }
+	const [method, setMethod] = useState('GET');
+	const[url, setUrl] = useState('');
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    props.handleApiCall(url, method);
+  };
     return (
       <>
         <form onSubmit={handleSubmit}>
           <label >
             <span>URL: </span>
-            <input name='url' type='text' />
-            <button type="submit">GO!</button>
+            <input onChange = {(e) => setUrl(e.target.value)} name='url' type='text' />
+            <button data-testid="button" type="submit">GO!</button>
           </label>
           <label className="methods">
-            <span id="get">GET</span>
-            <span id="post">POST</span>
-            <span id="put">PUT</span>
-            <span id="delete">DELETE</span>
+            <span id="get" onClick={() => setMethod('GET')}>GET</span>
+            <span id="post" onClick={() => setMethod('POST')}>POST</span>
+            <span id="put" onClick={() => setMethod('PUT')}>PUT</span>
+            <span id="delete" onClick={() => setMethod('DELETE')}>DELETE</span>
           </label>
         </form>
       </>
